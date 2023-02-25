@@ -131,4 +131,7 @@ int main()
     turn('X');
     winner = win_check();
     end_game(winner);
+
+    print_board();
+    cout << "The game is a tie.\n";
 }
