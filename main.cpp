@@ -30,21 +30,30 @@ void turn(char player)
     int move_index {}; // Defaults to 0
 
     // Handle input until move_index ∈ [1, 9]
-    while ( (move_index < 1) || (move_index > 9) )
+    while ( true )
     {
         print_board();
         cout << player << " move: ";
+        
         if ( !(cin >> move_index) )
         {
             cin.clear();
             cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            continue;
+        }
+        
+        else if ( (move_index < 1) || (move_index > 9) )
+        {
+            cout << "Move is out of range, try again.\n";
         }
         
         else if ( board[move_index] != '~' )
         {
             cout << "Move is taken, try again.\n";
-            continue;
+        }
+        
+        else 
+        {
+            break;
         }
     }
 
